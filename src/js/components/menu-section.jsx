@@ -4,29 +4,31 @@ import MenuItem from './menu-item'
 import { isNotDeleted, sortByDisplayOrder } from '../../utils'
 
 
-const MENU_SECTION_HEIGHT = 200
+const MENU_WIDTH = 500
+const MENU_SECTION_DEFAULT_HEIGHT = 100
 
 class MenuSection extends React.Component {
   render() {
     const { name, description, image, menuItems} = this.props
-    
-    const width = `${MENU_SECTION_HEIGHT}px`
+    const availableMenuItems = menuItems.filter(isNotDeleted).sortBy(sortByDisplayOrder)
+        
     const height = image.cellAspectRatio && Number.isInteger(image.cellAspectRatio) ? 
-      `${MENU_SECTION_HEIGHT/image.cellAspectRatio}px` : `${MENU_SECTION_HEIGHT}`
+      `${MENU_WIDTH/image.cellAspectRatio}px` : `${MENU_SECTION_DEFAULT_HEIGHT}px`
     
-      const availableMenuItems = menuItems.filter(isNotDeleted).sortBy(sortByDisplayOrder)
-
-      debugger
+    const style = {
+      height,
+      backgroundImage: `url(${image.url})`,
+    }
 
     return (
       <div className="fd-menu-section">
-        <h2>Section: {name}</h2>
+        <div className="fd-hero" style={style}>
+          <h2>{name}</h2>
+        </div>
+        
         { description && (
           <p>{description}</p>
-        )}
-        <div className="fd-menu-section-image" style={{width, height, overflow: "hidden"}}>
-          <img src={image.url} />
-        </div>
+        )}        
         <div>
           {
             availableMenuItems.map(menuItem => 
