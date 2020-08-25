@@ -21,3 +21,24 @@
   align-items: center;
   height: 100%;  
 }
+
+.fd-menu-item{
+  /* height: 100px; */
+}
+
+.fd-menu-item img{
+  /* float: left; */
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.item-unavailble{
+  text-decoration: line-through;
+}
+
+.menu-item-option-set ul{
+
+  position: relative;
+}

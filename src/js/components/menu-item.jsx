@@ -15,11 +15,13 @@ class MenuItem extends React.Component {
       isAvailable, 
       menuItemOptionSets
     } = this.props
+
+    // const style = 
     
     return (
       <div className={`fd-menu-item ${!isAvailable ? 'currently-unavailable' : ''}`}>
-        <h4>{ name }</h4>
         <img src={image.url} />
+        <h4>{ name }</h4>        
         <p>{description}</p>
         {/* spicinessRating */}
         <p>{ price }</p>

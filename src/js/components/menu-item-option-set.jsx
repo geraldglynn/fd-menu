@@ -1,23 +1,23 @@
 import React from 'react'
 import { isNotDeleted, sortByDisplayOrder } from '../../utils'
+import { Price } from './ui'
 
 class MenuItemOptionSetItem extends React.Component {
   render() {
-    const { name, price } = this.props
+    const { name, price, isAvailable } = this.props
     return(
-      <div>
-        <div> {name} </div>
-        <div> {price} </div>
-      </div>
+        <li className={`${!isAvailable ? 'item-unavailble' : ''}`}>{name} <Price price={price} /></li>              
     )
   }
 }
+
+
 
 class MenuItemOptionSet extends React.Component {
   render() {
     const { menuItemOptionSetItems } = this.props
     return(
-      <div>
+      <ul className="menu-item-option-set">
         { menuItemOptionSetItems
           .filter(isNotDeleted)
           .sortBy(sortByDisplayOrder)
@@ -26,7 +26,7 @@ class MenuItemOptionSet extends React.Component {
               key={menuItemOptionSetItem.get('MenuItemOptionSetItemId')}
               name={menuItemOptionSetItem.get('Name')}
               price={menuItemOptionSetItem.get('Price')}
-              IsAvailable={menuItemOptionSetItem.get('IsAvailable')}              
+              isAvailable={menuItemOptionSetItem.get('IsAvailable')}
               // "TaxRateId": null,
               // "TaxRate": null,
               // "TaxValue": 0,                                          
@@ -39,7 +39,7 @@ class MenuItemOptionSet extends React.Component {
               // "OptionSetItemMetadata": []
             />
         ))}
-      </div>
+      </ul>
     )
   }
 }
