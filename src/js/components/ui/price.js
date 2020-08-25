@@ -1,30 +1,16 @@
 import React from 'react'
-
-const CURRENCY_MAJOR = '€'
-const CURRENCY_MINOR = '¢'
+import { priceFormat } from '../../../utils'
 
 const Price = (props) => {
-  const { price } = props
-  if(Number.isNaN(price)) return
-
-  const priceFormat = (price) => {
-    switch(true) {
-      case (price === 0):
-        return 'free'
-      case (price < 1):
-        return `${Math.ceil(price*100)}${CURRENCY_MINOR}`
-      case (price >= 1 && Number.isInteger(price)):
-        return `${CURRENCY_MAJOR}${price}`
-      default:
-        return `${CURRENCY_MAJOR}${price.toFixed(2)}`
-    }
-  }
-
-  const priceString = priceFormat(price)
-  console.log({price, priceString})
+  const { price, additionalItem } = props
+  
+  const css = !price ? 'free' : 'normal'
+  // const additionalCharcater = additionalItem && !!price ? '+' : ''
+  const additionalCharcater = ''
+  const priceString = `${additionalCharcater}${priceFormat(price)}`
     
   return(
-  <span>{priceString}</span>
+    <span className={`price-${css}`}>{priceString}</span>
   )
 }
 

@@ -1,8 +1,12 @@
 import React from 'react'
 import MenuItemOptionSet from './menu-item-option-set'
-import { isNotDeleted, isAvailable } from '../../utils'
+import { Price } from './ui'
+import { isNotDeleted, isAvailable, showPrice } from '../../utils'
+
+const AGE_RESTRICTION = 18
 
 class MenuItem extends React.Component {
+
   render() {
     const { 
       name, 
@@ -13,19 +17,22 @@ class MenuItem extends React.Component {
       alcohol, 
       // tags, 
       isAvailable, 
-      menuItemOptionSets
+      menuItemOptionSets,
     } = this.props
 
-    // const style = 
+    
+      
+    const priceString = showPrice(price, {menuItemOptionSets}) ? <Price price={price} /> : ''
+    // const priceString = <Price price={price} />
     
     return (
       <div className={`fd-menu-item ${!isAvailable ? 'currently-unavailable' : ''}`}>
         <img src={image.url} />
-        <h4>{ name }</h4>        
+        <h4>{name}</h4>        
         <p>{description}</p>
         {/* spicinessRating */}
-        <p>{ price }</p>
-        <p>{`${alcohol ? 'Alcohol' : ''}`}</p>
+        { priceString ? <p>{priceString}</p> : null }
+        <p>{`${alcohol ? `Must be +${AGE_RESTRICTION}` : ''}`}</p>
         {/* <p>{!tags.isEmpty() ? tags.map(tag => tag)
           : ''}}
         </p> */}
