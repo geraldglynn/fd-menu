@@ -19,7 +19,7 @@ class MenuSection extends React.Component {
       height,
       backgroundImage: `url(${image.url})`,
     }
-
+    
     return (
       <div className="fd-menu-section">
         <div className="fd-hero" style={style}>
@@ -30,20 +30,21 @@ class MenuSection extends React.Component {
           <p>{description}</p>
         )}        
         <div>
-          {
+          {            
             availableMenuItems.map(menuItem => 
               <MenuItem
                 key={menuItem.get('MenuItemId')}
                 name={menuItem.get('Name')}
+                image={{
+                  url: menuItem.get('ImageUrl'),
+                }}
                 description={menuItem.get('Description')}
                 spicinessRating={menuItem.get('SpicinessRating')}
                 price={menuItem.get('Price')}
                 alcohol={menuItem.get('Alcohol')}
                 tags={menuItem.get('Tags')}
                 isAvailable={menuItem.get('IsAvailable')}
-                menuItemOptionSets={menuItem.get('MenuItemOptionSets')}
-                
-                // "PublicId": "62d6a3b8-7975-4f49-b2c3-a1384068b90f",                            
+                menuItemOptionSets={menuItem.get('MenuItemOptionSets')}                                
               />
             )
           }

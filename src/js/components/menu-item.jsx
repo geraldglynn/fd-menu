@@ -6,18 +6,20 @@ class MenuItem extends React.Component {
   render() {
     const { 
       name, 
-      description, 
-      spicinessRating, 
+      description,
+      image,
+      // spicinessRating, 
       price, 
       alcohol, 
-      tags, 
+      // tags, 
       isAvailable, 
-      menuItemOptionSets 
-    } = this.props    
+      menuItemOptionSets
+    } = this.props
     
     return (
       <div className={`fd-menu-item ${!isAvailable ? 'currently-unavailable' : ''}`}>
         <h4>{ name }</h4>
+        <img src={image.url} />
         <p>{description}</p>
         {/* spicinessRating */}
         <p>{ price }</p>
