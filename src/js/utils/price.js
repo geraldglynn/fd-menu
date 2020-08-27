@@ -1,5 +1,5 @@
 // const FREE_TEXT = 'no extra charge'
-import { currencySymbol } from './'
+import { currencySymbol } from '.'
 const FREE_TEXT = ''
 
 export const showPrice = (price, {menuItemOptionSets=''}={}) => {

@@ -1,16 +1,17 @@
 import React from 'react'
 
 import MenuItem from './menu-item'
-import { isNotDeleted, sortByDisplayOrder } from '../../utils'
+import { isNotDeleted, sortByDisplayOrder } from '../utils'
 
 
-const MENU_WIDTH = 500
+const MENU_WIDTH = 960
 const MENU_SECTION_DEFAULT_HEIGHT = 100
 
 class MenuSection extends React.Component {
   render() {
     const { name, description, image, menuItems} = this.props
     const availableMenuItems = menuItems.filter(isNotDeleted).sortBy(sortByDisplayOrder)
+    console.log(availableMenuItems.toJS())
         
     const height = image.cellAspectRatio && Number.isInteger(image.cellAspectRatio) ? 
       `${MENU_WIDTH/image.cellAspectRatio}px` : `${MENU_SECTION_DEFAULT_HEIGHT}px`
@@ -21,15 +22,15 @@ class MenuSection extends React.Component {
     }
     
     return (
-      <div className="fd-menu-section">
-        <div className="fd-hero" style={style}>
+      <div className="menu-section">
+        <div className="menu-section-hero container-fluid" style={style}>          
           <h2>{name}</h2>
         </div>
-        
+        <div className="menu-section-body container">
         { description && (
           <p>{description}</p>
         )}        
-        <div>
+        <div className="menu-items">
           {            
             availableMenuItems.map(menuItem => 
               <MenuItem
@@ -49,6 +50,7 @@ class MenuSection extends React.Component {
             )
           }
         </div>
+      </div>
       </div>
     );
   }

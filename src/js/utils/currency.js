@@ -1,4 +1,4 @@
-import { LOCALE, DEFAULT_CURRENCY_ZONE } from '../configs'
+import { LOCALE, DEFAULT_CURRENCY_ZONE } from '../../configs'
 
 const EU = 'EU'
 const GB = 'GB'

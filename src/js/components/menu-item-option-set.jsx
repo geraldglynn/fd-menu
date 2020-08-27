@@ -1,14 +1,13 @@
 import React from 'react'
-import { isNotDeleted, sortByDisplayOrder } from '../../utils'
+import { isNotDeleted, sortByDisplayOrder } from '../utils'
 import { Price } from './ui'
 
 class MenuItemOptionSetItem extends React.Component {
   render() {
-    const { name, price, isAvailable, isMasterOptionSet } = this.props
-    // const isAddtionalItem = !isMasterOptionSet
+    const { menuItemName, name: optionSetItemName, price, isAvailable, isMasterOptionSet } = this.props    
     return(
         <li className={`${!isAvailable ? 'item-unavailble' : ''}`}>
-          {name} <Price price={price} additionalItem={!isMasterOptionSet}/>
+          {optionSetItemName} <Price price={price} additionalItem={!isMasterOptionSet}/>
         </li>
     )
   }
@@ -16,10 +15,10 @@ class MenuItemOptionSetItem extends React.Component {
 
 class MenuItemOptionSet extends React.Component {
   render() {
-    const { name, menuItemOptionSetItems } = this.props
+    const { menuItemName, name: optionSetName, menuItemOptionSetItems } = this.props
     return(
       <div className="menu-item-option-set">
-        <h5>{name}</h5>
+        <h5>{optionSetName}</h5>
         <ul>
           { menuItemOptionSetItems
             .filter(isNotDeleted)
@@ -27,6 +26,7 @@ class MenuItemOptionSet extends React.Component {
             .map(menuItemOptionSetItem => (
               <MenuItemOptionSetItem 
                 key={menuItemOptionSetItem.get('MenuItemOptionSetItemId')}
+                menuItemName={menuItemName}
                 name={menuItemOptionSetItem.get('Name')}
                 price={menuItemOptionSetItem.get('Price')}
                 isAvailable={menuItemOptionSetItem.get('IsAvailable')}
