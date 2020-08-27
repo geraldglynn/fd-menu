@@ -12,7 +12,7 @@ class Menu extends React.Component {
       .sortBy(menuSection => menuSection.get('DisplayOrder', 0))
     
     return (
-      <div className="fd-menu">
+      <div className="menu">
         <h1>Menu</h1>
         { 
           menuSections.map(menuSection => 
