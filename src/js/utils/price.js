@@ -1,18 +1,22 @@
-// const FREE_TEXT = 'no extra charge'
 import { currencySymbol } from '.'
-const FREE_TEXT = ''
+const FREE_TEXT = 'included'
 
 export const showPrice = (price, {menuItemOptionSets=''}={}) => {
-  
+
   if(Number.isNaN(price)) return
 
-  const menuItemOptionSetIsMaster = menuItemOptionSets && menuItemOptionSets.some( menuItemOptionSet => menuItemOptionSet.get('IsMasterOptionSet') === true)    
-  if(menuItemOptionSetIsMaster) return
+  if( !menuItemOptionSets || menuItemOptionSets.isEmpty() ) return true
+
+  const menuItemHasOptionSetIsMaster = menuItemOptionSets.some( menuItemOptionSet => menuItemOptionSet.get('IsMasterOptionSet') === true )
+  if(menuItemHasOptionSetIsMaster) return
+
+  const menuItemFirstOptionSetIsMinSelectCount = menuItemOptionSets.get(0).get('MinSelectCount')
+  if( menuItemFirstOptionSetIsMinSelectCount && menuItemFirstOptionSetIsMinSelectCount > 0) return
 
   return true
 }
 
-export const priceFormat = (price) => { 
+export const priceFormat = (price) => {
   switch(true) {
     case (!price):
       return FREE_TEXT

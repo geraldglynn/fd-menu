@@ -18,8 +18,8 @@ const COUNTRY_ECONOMIC_ZONE = {
   'GB': GB,
   'AI': GB,
   'BM': GB,
-  'IO': GB,  
-  'GI': GB,  
+  'IO': GB,
+  'GI': GB,
   'US': US,
 }
 

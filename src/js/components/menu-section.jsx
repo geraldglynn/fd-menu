@@ -11,28 +11,27 @@ class MenuSection extends React.Component {
   render() {
     const { name, description, image, menuItems} = this.props
     const availableMenuItems = menuItems.filter(isNotDeleted).sortBy(sortByDisplayOrder)
-    console.log(availableMenuItems.toJS())
-        
-    const height = image.cellAspectRatio && Number.isInteger(image.cellAspectRatio) ? 
+
+    const height = image.cellAspectRatio && Number.isInteger(image.cellAspectRatio) ?
       `${MENU_WIDTH/image.cellAspectRatio}px` : `${MENU_SECTION_DEFAULT_HEIGHT}px`
-    
+
     const style = {
       height,
       backgroundImage: `url(${image.url})`,
     }
-    
+
     return (
       <div className="menu-section">
-        <div className="menu-section-hero container-fluid" style={style}>          
+        <div className="menu-section-hero container-fluid" style={style}>
           <h2>{name}</h2>
         </div>
         <div className="menu-section-body container">
         { description && (
           <p>{description}</p>
-        )}        
+        )}
         <div className="menu-items">
-          {            
-            availableMenuItems.map(menuItem => 
+          {
+            availableMenuItems.map(menuItem =>
               <MenuItem
                 key={menuItem.get('MenuItemId')}
                 name={menuItem.get('Name')}
@@ -45,7 +44,7 @@ class MenuSection extends React.Component {
                 alcohol={menuItem.get('Alcohol')}
                 tags={menuItem.get('Tags')}
                 isAvailable={menuItem.get('IsAvailable')}
-                menuItemOptionSets={menuItem.get('MenuItemOptionSets')}                                
+                menuItemOptionSets={menuItem.get('MenuItemOptionSets')}
               />
             )
           }

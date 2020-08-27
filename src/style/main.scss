@@ -1,10 +1,17 @@
 // @import '/node_modules/bootstrap/scss/bootstrap.css';
-@import 'bootstrap/scss/bootstrap-grid.scss';
+@import 'bootstrap/scss/bootstrap';
+@import './varibales';
+
+body{
+  font-size: 10px
+}
+
 
 .flipdish-app {
   .menu {
     // width: 960px;
     margin: 0 auto;
+    font-size: $default-font-size;
 
     h1{
       text-align: center;
@@ -25,11 +32,13 @@
       }
 
       .menu-item {
+        margin-top: $menu-item-margin;
+        margin-bottom: $menu-item-margin;
+
         img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        object-position: center;
+          height: 200px;
+          object-fit: cover;
+          object-position: center;
         }
 
         .item-unavailble{
