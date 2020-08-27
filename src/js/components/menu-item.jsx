@@ -1,7 +1,7 @@
 import React from 'react'
 import MenuItemOptionSet from './menu-item-option-set'
 import { Price } from './ui'
-import { isNotDeleted, isAvailable, showPrice } from '../../utils'
+import { isNotDeleted, showPrice } from '../../utils'
 
 const AGE_RESTRICTION = 18
 

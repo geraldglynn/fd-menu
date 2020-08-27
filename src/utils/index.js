@@ -1,5 +1,3 @@
-import { showPrice } from './price'
-
 export {
   isNotDeleted,
   isAvailable,
@@ -11,3 +9,7 @@ export {
   showPrice,
   priceFormat,
 } from './price'
+
+export {
+  currencySymbol,
+} from './currency'

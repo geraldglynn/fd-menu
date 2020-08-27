@@ -1,6 +1,5 @@
-const CURRENCY_MAJOR = '€'
-const CURRENCY_MINOR = '¢'
 // const FREE_TEXT = 'no extra charge'
+import { currencySymbol } from './'
 const FREE_TEXT = ''
 
 export const showPrice = (price, {menuItemOptionSets=''}={}) => {
@@ -18,10 +17,10 @@ export const priceFormat = (price) => {
     case (!price):
       return FREE_TEXT
     case (price < 1):
-      return `${Math.ceil(price*100)}${CURRENCY_MINOR}`
+      return `${Math.ceil(price*100)}${currencySymbol.minor}`
     case (price >= 1 && Number.isInteger(price)):
-      return `${CURRENCY_MAJOR}${price}`
+      return `${currencySymbol.major}${price}`
     default:
-      return `${CURRENCY_MAJOR}${price.toFixed(2)}`
+      return `${currencySymbol.major}${price.toFixed(2)}`
   }
 }
