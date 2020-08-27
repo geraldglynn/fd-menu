@@ -10,6 +10,8 @@ export const showPrice = (price, {menuItemOptionSets=''}={}) => {
   const menuItemHasOptionSetIsMaster = menuItemOptionSets.some( menuItemOptionSet => menuItemOptionSet.get('IsMasterOptionSet') === true )
   if(menuItemHasOptionSetIsMaster) return
 
+  if(price) return true
+
   const menuItemFirstOptionSetIsMinSelectCount = menuItemOptionSets.get(0).get('MinSelectCount')
   if( menuItemFirstOptionSetIsMinSelectCount && menuItemFirstOptionSetIsMinSelectCount > 0) return
 
