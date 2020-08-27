@@ -1,7 +1,7 @@
 import React from 'react'
 import { priceFormat } from '../../utils'
 
-const Price = (props) => {
+function Price(props) {
   const { price, additionalItem } = props
 
   const css = !price ? 'free' : 'normal'
