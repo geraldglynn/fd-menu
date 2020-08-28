@@ -1,52 +1,44 @@
 import React from 'react'
-import { isNotDeleted, sortByDisplayOrder } from '../../utils'
+import { isNotDeleted, sortByDisplayOrder } from '../utils'
 import { Price } from './ui'
 
-class MenuItemOptionSetItem extends React.Component {
-  render() {
-    const { name, price, isAvailable, isMasterOptionSet } = this.props
-    // const isAddtionalItem = !isMasterOptionSet
-    return(
-        <li className={`${!isAvailable ? 'item-unavailble' : ''}`}>
-          {name} <Price price={price} additionalItem={!isMasterOptionSet}/>
-        </li>
-    )
-  }
+function MenuItemOptionSetItem(props){
+  const { name, price, isAvailable, additionalItem } = props
+
+  return (
+    <div className={`${!isAvailable ? 'item-unavailble' : ''} row`}>
+      <span className="col-8">{ name }</span>
+      <span className="col-4"><Price price={price} additionalItem={additionalItem}/></span>
+    </div>
+  )
 }
 
-class MenuItemOptionSet extends React.Component {
-  render() {
-    const { name, menuItemOptionSetItems } = this.props
-    return(
-      <div className="menu-item-option-set">
-        <h5>{name}</h5>
-        <ul>
-          { menuItemOptionSetItems
-            .filter(isNotDeleted)
-            .sortBy(sortByDisplayOrder)
-            .map(menuItemOptionSetItem => (
-              <MenuItemOptionSetItem 
-                key={menuItemOptionSetItem.get('MenuItemOptionSetItemId')}
-                name={menuItemOptionSetItem.get('Name')}
-                price={menuItemOptionSetItem.get('Price')}
-                isAvailable={menuItemOptionSetItem.get('IsAvailable')}
-                isMasterOptionSet={menuItemOptionSetItem.get('IsMasterOptionSet')}
-                // "TaxRateId": null,
-                // "TaxRate": null,
-                // "TaxValue": 0,                                          
-                // "Tags": [],
-                // "NextMenuItemOptionSetId": null,              
-                // "ImageName": null,
-                // "ImageUrl": null,
-                // "CellAspectRatio": 0,
-                // "CellLayoutType": 0,
-                // "OptionSetItemMetadata": []
-              />
-          ))}
-        </ul>
+function MenuItemOptionSet(props) {
+  const { menuItemName, name: optionSetName, menuItemOptionSetItems, isMasterOptionSet, minSelectCount } = props
+  return(
+    <div className="menu-item-option-set">
+      <h4>{optionSetName}</h4>
+      <div className="">
+        {
+          menuItemOptionSetItems
+          .filter(isNotDeleted)
+          .sortBy(sortByDisplayOrder)
+          .map(menuItemOptionSetItem => {
+            // console.log(menuItemOptionSetItem.get('NextMenuItemOptionSetId'))
+            return <MenuItemOptionSetItem
+              key={menuItemOptionSetItem.get('MenuItemOptionSetItemId')}
+              menuItemName={menuItemName}
+              name={menuItemOptionSetItem.get('Name')}
+              price={menuItemOptionSetItem.get('Price')}
+              isAvailable={menuItemOptionSetItem.get('IsAvailable')}
+              isMasterOptionSet={isMasterOptionSet}
+              additionalItem={!minSelectCount}
+              nextMenuItemOptionSetId={menuItemOptionSetItem.get('nextMenuItemOptionSetId')}
+            />
+          })}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default MenuItemOptionSet
