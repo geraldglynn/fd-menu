@@ -17,7 +17,7 @@ function MenuItemOptionSet(props) {
   const { menuItemName, name: optionSetName, menuItemOptionSetItems, isMasterOptionSet, minSelectCount } = props
   return(
     <div className="menu-item-option-set">
-      <h5>{optionSetName}</h5>
+      <h4>{optionSetName}</h4>
       <div className="">
         {
           menuItemOptionSetItems

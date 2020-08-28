@@ -1,17 +1,14 @@
-// @import '/node_modules/bootstrap/scss/bootstrap.css';
-@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap-grid';
 @import './varibales';
+@import './type';
 
 body{
-  font-size: 10px
+  font-size: 62.5%;
 }
-
 
 .flipdish-app {
   .menu {
-    // width: 960px;
     margin: 0 auto;
-    font-size: $default-font-size;
 
     h1{
       text-align: center;
@@ -34,6 +31,11 @@ body{
       .menu-item {
         margin-top: $menu-item-margin;
         margin-bottom: $menu-item-margin;
+
+        &-price{
+          margin-top: -2rem;
+          margin-bottom: 2rem;
+        }
 
         img {
           height: 200px;

@@ -28,7 +28,7 @@ function MenuItem(props) {
       <img src={imageUrl} className="col-4"/>
       <div className="menu-item-details col-8">
         <div className="row">
-          <h4>{menuItemName}</h4>
+          <h3>{menuItemName}</h3>
         </div>
         <div className="menu-item-price row justify-content-end">
           <div className="col-2">{ priceString }</div>
