@@ -1,0 +1,56 @@
+@import 'bootstrap/scss/bootstrap-grid';
+@import './varibales';
+@import './type';
+
+body{
+  font-size: 62.5%;
+}
+
+.flipdish-app {
+  .menu {
+    margin: 0 auto;
+
+    h1{
+      text-align: center;
+    }
+
+    .menu-section {
+      &-hero {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: center;
+      }
+
+      h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .menu-item {
+        margin-top: $menu-item-margin;
+        margin-bottom: $menu-item-margin;
+
+        &-price{
+          margin-top: -2rem;
+          margin-bottom: 2rem;
+        }
+
+        img {
+          height: 200px;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .item-unavailble{
+          text-decoration: line-through;
+        }
+
+        .price-free{
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
