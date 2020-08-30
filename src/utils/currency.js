@@ -1,4 +1,4 @@
-import { LOCALE, DEFAULT_CURRENCY_ZONE } from 'configs'
+import { DEFAULT_CURRENCY_ZONE } from 'configs'
 
 const EU = 'EU'
 const GB = 'GB'
@@ -43,11 +43,11 @@ const currencyUnits = {
   'GBP': { major: symbols[POUND], minor: symbols[PENCE] },
 }
 
-const getCurrency = () => {
-  const economicZone = COUNTRY_ECONOMIC_ZONE[LOCALE] || DEFAULT_CURRENCY_ZONE
+const getCurrency = (locale='') => {
+  const economicZone = COUNTRY_ECONOMIC_ZONE[locale] || DEFAULT_CURRENCY_ZONE
   return ECONOMIC_ZONE_TO_CURRENCY[economicZone]
 }
 
-export const currencySymbol = currencyUnits[getCurrency()]
+export const currencySymbol = (locale='') => currencyUnits[getCurrency(locale)]
 
 
