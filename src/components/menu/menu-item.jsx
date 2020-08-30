@@ -4,7 +4,8 @@ import MenuItemOptionSet from './menu-item-option-set'
 import { Price } from 'components/ui'
 
 import { AGE_RESTRICTION } from 'configs'
-import { isNotDeleted, showPrice } from 'utils'
+import { showPrice } from 'utils'
+import { isNotDeleted } from 'helpers'
 
 function MenuItem(props) {
 

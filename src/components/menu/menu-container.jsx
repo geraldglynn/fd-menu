@@ -1,7 +1,9 @@
 import React from 'react'
 import { List } from 'immutable'
 import MenuSection from './menu-section'
-import { isNotDeleted, isAvailable, isNotHiddenFromUsers } from 'utils'
+import { isNotDeleted, isAvailable, isNotHiddenFromUsers } from 'helpers'
+
+import { menuContainer } from './menu.module.scss'
 
 function Menu(props) {
   const menuSections = props.menuSections
@@ -11,7 +13,7 @@ function Menu(props) {
     .sortBy(menuSection => menuSection.get('DisplayOrder', 0))
 
   return (
-    <div className="menu">
+    <div className={menuContainer}>
       <h1>Menu</h1>
       {
         menuSections.map(menuSection =>
