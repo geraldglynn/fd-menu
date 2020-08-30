@@ -35,22 +35,9 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "verbose": true,
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.(css|scss|less)$": "jest-css-modules"
-    },
-    "globals": {
-      "NODE_ENV": "test"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "src/js"
-    ]
+  "devDependencies": {
+    "@testing-library/dom": "^7.23.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^10.4.9"
   }
 }
