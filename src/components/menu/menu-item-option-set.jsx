@@ -1,6 +1,6 @@
 import React from 'react'
 import { isNotDeleted, sortByDisplayOrder } from 'js/utils'
-import { Price } from 'js/components/ui'
+import { Price } from 'components/ui'
 
 function MenuItemOptionSetItem(props){
   const { name, price, isAvailable, additionalItem } = props
