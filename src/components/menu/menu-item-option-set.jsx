@@ -1,5 +1,5 @@
 import React from 'react'
-import { isNotDeleted, sortByDisplayOrder } from 'js/utils'
+import { isNotDeleted, sortByDisplayOrder } from 'utils'
 import { Price } from 'components/ui'
 
 function MenuItemOptionSetItem(props){

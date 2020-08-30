@@ -1,5 +1,5 @@
 import React from 'react'
-import { priceFormat } from 'js/utils'
+import { priceFormat } from 'utils'
 
 function Price(props) {
   const { price, additionalItem } = props
