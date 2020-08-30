@@ -25,14 +25,9 @@
   background-position-y: center;
 }
 
-.menu-item {
+.menuItem {
   margin-top: $menu-item-margin;
   margin-bottom: $menu-item-margin;
-
-  &-price{
-    margin-top: -2rem;
-    margin-bottom: 2rem;
-  }
 
   img {
     height: 200px;
@@ -41,7 +36,13 @@
   }
 }
 
-.item-unavailble{
+.menuItemPrice{
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
+
+
+.itemUnavailble{
   text-decoration: line-through;
 }
 
