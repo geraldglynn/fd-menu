@@ -5,11 +5,11 @@ import { isNotDeleted, isAvailable, isNotHiddenFromUsers } from 'helpers'
 
 import { menuContainer } from './menu.module.scss'
 
+const showSection = () => isNotDeleted && isAvailable && isNotHiddenFromUsers
+
 function Menu(props) {
   const menuSections = props.menuSections
-    .filter(isNotDeleted)
-    .filter(isAvailable)
-    .filter(isNotHiddenFromUsers)
+    .filter(showSection)
     .sortBy(menuSection => menuSection.get('DisplayOrder', 0))
 
   return (
