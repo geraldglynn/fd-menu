@@ -1,7 +1,7 @@
 import React from 'react'
 
 import MenuItemOptionSet from './menu-item-option-set'
-import { Price } from './ui'
+import { Price } from 'js/components/ui'
 
 import { AGE_RESTRICTION } from 'configs'
 import { isNotDeleted, showPrice } from 'js/utils'
