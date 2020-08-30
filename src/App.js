@@ -10,6 +10,7 @@ const menuImmutable = fromJS(menuJson)
 function App() {
   return (
     <div className="flipdish-app">
+      <h1>Flipdish App</h1>
       <Menu
         menuSections={menuImmutable.get('MenuSections')}
       />
