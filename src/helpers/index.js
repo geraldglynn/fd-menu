@@ -4,3 +4,8 @@ export {
   isNotHiddenFromUsers,
   sortByDisplayOrder,
 } from './menu'
+
+export {
+  showPrice,
+  priceFormat,
+} from './price'
