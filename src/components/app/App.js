@@ -1,6 +1,6 @@
 import React from 'react'
 import { fromJS } from 'immutable'
-import Menu from 'components/menu/menu'
+import Menu from 'components/menu/menu-container'
 import menuJson from 'mock/menu.json'
 import "style/main.scss"
 
