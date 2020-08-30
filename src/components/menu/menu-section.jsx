@@ -1,7 +1,7 @@
 import React from 'react'
 
 import MenuItem from './menu-item'
-import { isNotDeleted, sortByDisplayOrder } from 'utils'
+import { isNotDeleted, sortByDisplayOrder } from 'helpers'
 
 
 const MENU_WIDTH = 960
