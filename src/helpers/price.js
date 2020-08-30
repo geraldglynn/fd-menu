@@ -1,5 +1,6 @@
+import { LOCALE } from 'configs'
 import { currencySymbol } from 'utils'
-const FREE_TEXT = 'included'
+export const FREE_TEXT = 'included'
 
 export const showPrice = (price, {menuItemOptionSets=''}={}) => {
 
@@ -18,15 +19,18 @@ export const showPrice = (price, {menuItemOptionSets=''}={}) => {
   return true
 }
 
+const currencyMinor = currencySymbol(LOCALE).minor
+const currencyMajor = currencySymbol(LOCALE).major
+
 export const priceFormat = (price) => {
   switch(true) {
     case (!price):
       return FREE_TEXT
     case (price < 1):
-      return `${Math.ceil(price*100)}${currencySymbol.minor}`
+      return `${Math.ceil(price*100)}${currencyMinor}`
     case (price >= 1 && Number.isInteger(price)):
-      return `${currencySymbol.major}${price}`
+      return `${currencyMajor}${price}`
     default:
-      return `${currencySymbol.major}${price.toFixed(2)}`
+      return `${currencyMajor}${price.toFixed(2)}`
   }
 }
