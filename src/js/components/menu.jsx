@@ -1,7 +1,7 @@
 import React from 'react'
 import { List } from 'immutable'
 import MenuSection from './menu-section'
-import { isNotDeleted, isAvailable, isNotHiddenFromUsers } from '../utils'
+import { isNotDeleted, isAvailable, isNotHiddenFromUsers } from 'js/utils'
 
 function Menu(props) {
   const menuSections = props.menuSections

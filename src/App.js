@@ -1,8 +1,8 @@
 import React from 'react'
 import { fromJS } from 'immutable'
-import Menu from './js/components/menu'
-import menuJson from './mock/menu.json'
-import "./style/main.scss"
+import Menu from 'js/components/menu'
+import menuJson from 'mock/menu.json'
+import "style/main.scss"
 
 
 const menuImmutable = fromJS(menuJson)

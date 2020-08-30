@@ -1,4 +1,4 @@
-import { currencySymbol } from '.'
+import { currencySymbol } from 'js/utils'
 const FREE_TEXT = 'included'
 
 export const showPrice = (price, {menuItemOptionSets=''}={}) => {

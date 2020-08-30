@@ -3,8 +3,8 @@ import React from 'react'
 import MenuItemOptionSet from './menu-item-option-set'
 import { Price } from './ui'
 
-import { AGE_RESTRICTION } from '../../configs'
-import { isNotDeleted, showPrice } from '../utils'
+import { AGE_RESTRICTION } from 'configs'
+import { isNotDeleted, showPrice } from 'js/utils'
 
 function MenuItem(props) {
 
