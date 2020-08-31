@@ -1,26 +1,40 @@
 import React from 'react'
+import classNames from 'classnames'
+
 import { isNotDeleted, sortByDisplayOrder } from 'helpers'
 import { Price } from 'components/ui'
 
 import { optionSetItem, unavailableInline } from './menu.module.scss'
 
 function MenuItemOptionSetItem(props){
-  const { name, price, isAvailable, additionalItem } = props
+  const { name: optionSetItemName, price, isAvailable, additionalItem } = props
+
+  const className = {
+    item: classNames('row', optionSetItem, { [unavailableInline]:!isAvailable }),
+    name: classNames('col-8'),
+    price: classNames('col-4')
+  }
 
   return (
-    <div className={`${optionSetItem} ${!isAvailable ? {unavailableInline} : ''} row`}>
-      <span className="col-8">{ name }</span>
-      <span className="col-4"><Price price={price} additionalItem={additionalItem}/></span>
+    <div className={className.item}>
+      <span className={className.name}>{ optionSetItemName }</span>
+      <span className={className.price}><Price price={price} additionalItem={additionalItem}/></span>
     </div>
   )
 }
 
 function MenuItemOptionSet(props) {
   const { menuItemName, name: optionSetName, menuItemOptionSetItems, isMasterOptionSet, minSelectCount } = props
+
+  const className = {
+    section: classNames('menu-item-option-set'),
+    items: classNames('menu-item-option-set-items'),
+  }
+
   return(
-    <div className="menu-item-option-set">
+    <div className={className.section}>
       <h4>{optionSetName}</h4>
-      <div className="">
+      <div className={className.items}>
         {
           menuItemOptionSetItems
           .filter(isNotDeleted)

@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 import MenuItemOptionSet from './menu-item-option-set'
 import { Price } from 'components/ui'
@@ -14,38 +15,54 @@ function MenuItem(props) {
     name: menuItemName,
     description,
     image,
-    // spicinessRating,
     price,
     alcohol,
     isAvailable,
     menuItemOptionSets,
   } = props
 
-  const priceComponenet = showPrice(price, {isMenuItem: true, menuItemOptionSets}) ? <Price price={price} /> : null
+  const showPriceComponent = showPrice(price, {isMenuItem: true, menuItemOptionSets})
+  const priceComponenet = showPriceComponent ? <Price price={price} /> : null
 
   const imageUrl = image.url || 'http://lorempixel.com/g/500/500/food/'
-  const unavailable = !isAvailable || !image.url ? unavailableBlock : ''
+
+  const unavailable = !isAvailable || !image.url
+
+  const className = {
+    section: classNames('row', item, { [unavailableBlock]: unavailable }),
+    image: classNames('col-4'),
+    body: classNames('col-8'),
+    name: classNames('row'),
+    priceSection: classNames('row', 'justify-content-end', itemPrice),
+    priceComponent: classNames('col-2'),
+    details: classNames('row'),
+    description: classNames('col-6'),
+    optionSets: classNames('col-6'),
+
+  }
+
+  debugger
+
+  const itemDetailsClass = classNames('col-8')
 
   return (
-    <div className={`${item} ${unavailable} row`}>
-      <img src={imageUrl} className="col-4"/>
-      <div className="menu-item-details col-8">
-        <div className="row">
+    <div className={className.section}>
+      <img src={imageUrl} className={className.image}/>
+      <div className={className.body}>
+        <div className={className.name}>
           <h3>{menuItemName}</h3>
         </div>
-        <div className={`${itemPrice} row justify-content-end`}>
-          <div className="col-2">{priceComponenet}</div>
-        </div>
-        <div className="row">
-          <div className="col-6">
+        { showPriceComponent ?
+        <div className={className.priceSection}>
+          <div className={className.priceComponenet}>{priceComponenet}</div>
+        </div> : null }
+        <div className={className.details}>
+          <div className={className.description}>
             <p>{description}</p>
             <p>{`${alcohol ? `Must be +${AGE_RESTRICTION}` : ''}`}</p>
           </div>
-          {/* spicinessRating */}
-          {/* <p>{!tags.isEmpty() ? tags.map(tag => tag)
-            : ''}}
-          </p> */}
-          <div className="option-sets col-6">
+          { menuItemOptionSets ?
+          <div className={className.optionSets}>
             {
               menuItemOptionSets
                 .filter(isNotDeleted)
@@ -61,7 +78,7 @@ function MenuItem(props) {
                   />
                 )
             }
-          </div>
+          </div> : null }
         </div>
       </div>
 
