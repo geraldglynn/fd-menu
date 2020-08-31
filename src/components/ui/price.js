@@ -13,7 +13,7 @@ function Price(props) {
   const priceString = `${additionalCharcater}${priceFormat(price)}`
 
   return(
-    <span className={priceClass}>{priceString}</span>
+    <span className={priceClass} data-testid='ui-price'>{priceString}</span>
   )
 }
 
