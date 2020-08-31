@@ -39,10 +39,8 @@ function MenuSection(props) {
                 url: menuItem.get('ImageUrl'),
               }}
               description={menuItem.get('Description')}
-              spicinessRating={menuItem.get('SpicinessRating')}
               price={menuItem.get('Price')}
               alcohol={menuItem.get('Alcohol')}
-              tags={menuItem.get('Tags')}
               isAvailable={menuItem.get('IsAvailable')}
               menuItemOptionSets={menuItem.get('MenuItemOptionSets')}
             />

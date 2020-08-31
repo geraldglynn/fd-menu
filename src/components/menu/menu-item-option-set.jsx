@@ -24,7 +24,7 @@ function MenuItemOptionSetItem(props){
 }
 
 function MenuItemOptionSet(props) {
-  const { menuItemName, name: optionSetName, menuItemOptionSetItems, isMasterOptionSet, minSelectCount } = props
+  const { name: optionSetName, menuItemOptionSetItems, isMasterOptionSet, minSelectCount } = props
 
   const className = {
     section: classNames('menu-item-option-set'),
@@ -43,7 +43,6 @@ function MenuItemOptionSet(props) {
             // console.log(menuItemOptionSetItem.get('NextMenuItemOptionSetId'))
             return <MenuItemOptionSetItem
               key={menuItemOptionSetItem.get('MenuItemOptionSetItemId')}
-              menuItemName={menuItemName}
               name={menuItemOptionSetItem.get('Name')}
               price={menuItemOptionSetItem.get('Price')}
               isAvailable={menuItemOptionSetItem.get('IsAvailable')}

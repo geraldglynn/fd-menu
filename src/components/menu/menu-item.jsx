@@ -38,7 +38,6 @@ function MenuItem(props) {
     details: classNames('row'),
     description: classNames('col-6'),
     optionSets: classNames('col-6'),
-
   }
 
   debugger
@@ -70,7 +69,6 @@ function MenuItem(props) {
                   <MenuItemOptionSet
                     key={menuItemOptionSet.get('MenuItemOptionSetId')}
                     isMasterOptionSet={menuItemOptionSet.get('IsMasterOptionSet')}
-                    menuItemName={menuItemName}
                     name={menuItemOptionSet.get('Name')}
                     minSelectCount={menuItemOptionSet.get('MinSelectCount')}
                     maxSelectCount={menuItemOptionSet.get('MaxSelectCount')}

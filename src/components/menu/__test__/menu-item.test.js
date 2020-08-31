@@ -33,7 +33,6 @@ describe('MenuItem', () => {
             description={mockMenuItem1.get('Description')}
             price={mockMenuItem1.get('Price')}
             alcohol={mockMenuItem1.get('Alcohol')}
-            tags={mockMenuItem1.get('Tags')}
             isAvailable={mockMenuItem1.get('IsAvailable')}
             menuItemOptionSets={mockMenuItem1.get('MenuItemOptionSets')}
             />
