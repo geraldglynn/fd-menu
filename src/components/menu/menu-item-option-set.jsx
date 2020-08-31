@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import { isNotDeleted, sortByDisplayOrder } from 'helpers'
+import { isNotDeleted, displayOrder } from 'helpers'
 import { Price } from 'components/ui'
 
 import { optionSetItem, unavailableInline } from './menu.module.scss'
@@ -38,7 +38,7 @@ function MenuItemOptionSet(props) {
         {
           menuItemOptionSetItems
           .filter(isNotDeleted)
-          .sortBy(sortByDisplayOrder)
+          .sortBy(displayOrder)
           .map(menuItemOptionSetItem => {
             // console.log(menuItemOptionSetItem.get('NextMenuItemOptionSetId'))
             return <MenuItemOptionSetItem

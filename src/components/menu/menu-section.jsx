@@ -1,7 +1,7 @@
 import React from 'react'
 
 import MenuItem from './menu-item'
-import { isNotDeleted, sortByDisplayOrder } from 'helpers'
+import { isNotDeleted, displayOrder } from 'helpers'
 import { section, sectionHero  } from './menu.module.scss'
 
 
@@ -10,7 +10,7 @@ const MENU_SECTION_DEFAULT_HEIGHT = 100
 
 function MenuSection(props) {
   const { name, description, image, menuItems} = props
-  const availableMenuItems = menuItems.filter(isNotDeleted).sortBy(sortByDisplayOrder)
+  const availableMenuItems = menuItems.filter(isNotDeleted).sortBy(displayOrder)
 
   const height = image.cellAspectRatio && Number.isInteger(image.cellAspectRatio) ?
     `${MENU_WIDTH/image.cellAspectRatio}px` : `${MENU_SECTION_DEFAULT_HEIGHT}px`
@@ -21,8 +21,8 @@ function MenuSection(props) {
   }
 
   return (
-    <div className={section}>
-      <div className={`${sectionHero} container-fluid`} style={style}>
+    <div data-testid="menu-section" className={section}>
+      <div className={`${sectionHero} container-fluid`} style={style} data-testid="menu-section-hero">
         <h2>{name}</h2>
       </div>
       <div className="menu-section-body container">

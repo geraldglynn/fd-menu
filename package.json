@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "jest": "jest"
+    "flipdish": "npm install && npm start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +38,7 @@
   "devDependencies": {
     "@testing-library/dom": "^7.23.0",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^10.4.9"
+    "@testing-library/react": "^10.4.9",
+    "jest-fetch-mock": "^3.0.3"
   }
 }
