@@ -2,11 +2,10 @@ import React from 'react';
 import { fromJS } from 'immutable'
 import { render } from '@testing-library/react';
 
-import MenuItem from 'components/menu/menu-item'
+import MenuItem from '../menu-item'
+import { mockMenuItemBase } from './resources'
 
-const mockMenuItem = fromJS({})
-
-const mockMenuItem1 = mockMenuItem.merge(fromJS({
+const mockMenuItem = mockMenuItemBase.merge(fromJS({
     'Name': 'Item 1',
     'Description': 'Item Description 1',
     'ImageUrl': 'http://example.com/abc.jpg',
@@ -22,16 +21,16 @@ describe('MenuItem', () => {
     beforeEach( () => {
         const dom = render(
             <MenuItem
-            key={mockMenuItem1.get('MenuItemId')}
-            name={mockMenuItem1.get('Name')}
+            key={mockMenuItem.get('MenuItemId')}
+            name={mockMenuItem.get('Name')}
             image={{
-              url: mockMenuItem1.get('ImageUrl'),
+              url: mockMenuItem.get('ImageUrl'),
             }}
-            description={mockMenuItem1.get('Description')}
-            price={mockMenuItem1.get('Price')}
-            alcohol={mockMenuItem1.get('Alcohol')}
-            isAvailable={mockMenuItem1.get('IsAvailable')}
-            menuItemOptionSets={mockMenuItem1.get('MenuItemOptionSets')}
+            description={mockMenuItem.get('Description')}
+            price={mockMenuItem.get('Price')}
+            alcohol={mockMenuItem.get('Alcohol')}
+            isAvailable={mockMenuItem.get('IsAvailable')}
+            menuItemOptionSets={mockMenuItem.get('MenuItemOptionSets')}
             />
         )
         domText = dom.getByText

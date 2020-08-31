@@ -2,8 +2,7 @@ import React from 'react';
 import { fromJS } from 'immutable'
 import { render } from '@testing-library/react';
 
-import MenuSection from 'components/menu/menu-section'
-
+import MenuSection from '../menu-section'
 import { mockMenuSectionBase } from './resources'
 
 const mockMenuSection = mockMenuSectionBase.merge(fromJS({
@@ -44,7 +43,7 @@ describe('MenuSection', () => {
     })
     it('should render image', () => {
         const menuSectionHero = domTestId(/menu-section-hero/i)
-        expect(menuSectionHero).toHaveStyle(`background-image: url("http://example.com/abc.jpg")`)
+        expect(menuSectionHero).toHaveStyle(`background-image: url("http://example.com/abc.jpg");`)
         expect(menuSectionHero).toHaveStyle(`height: 240px`)
     })
 })

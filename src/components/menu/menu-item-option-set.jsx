@@ -40,7 +40,6 @@ function MenuItemOptionSet(props) {
           .filter(isNotDeleted)
           .sortBy(displayOrder)
           .map(menuItemOptionSetItem => {
-            // console.log(menuItemOptionSetItem.get('NextMenuItemOptionSetId'))
             return <MenuItemOptionSetItem
               key={menuItemOptionSetItem.get('MenuItemOptionSetItemId')}
               name={menuItemOptionSetItem.get('Name')}
