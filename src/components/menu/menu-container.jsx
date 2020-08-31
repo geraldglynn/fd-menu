@@ -1,5 +1,6 @@
-import React from 'react'
-import { List } from 'immutable'
+import React, { useState, useStore, useEffect } from 'react'
+import { List, fromJS } from 'immutable'
+import { getMenu } from 'api/menu'
 import MenuSection from './menu-section'
 import { isNotDeleted, isAvailable, isNotHiddenFromUsers } from 'helpers'
 
@@ -8,7 +9,16 @@ import { container } from './menu.module.scss'
 const showSection = () => isNotDeleted && isAvailable && isNotHiddenFromUsers
 
 function Menu(props) {
-  const menuSections = props.menuSections
+  const [menu, setMenu] = useState(fromJS({}))
+  const store = useStore()
+
+  useEffect(() => {
+    getMenu()
+  }, [])
+
+  console.log(store.getState().toJS())
+
+  const menuSections = menu.get('MenuSections')
     .filter(showSection)
     .sortBy(menuSection => menuSection.get('DisplayOrder', 0))
 
