@@ -21,8 +21,8 @@ function MenuSection(props) {
   }
 
   return (
-    <div className={section}>
-      <div className={`${sectionHero} container-fluid`} style={style}>
+    <div data-testid="menu-section" className={section}>
+      <div className={`${sectionHero} container-fluid`} style={style} data-testid="menu-section-hero">
         <h2>{name}</h2>
       </div>
       <div className="menu-section-body container">
