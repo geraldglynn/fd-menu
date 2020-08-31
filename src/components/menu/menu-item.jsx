@@ -4,8 +4,9 @@ import MenuItemOptionSet from './menu-item-option-set'
 import { Price } from 'components/ui'
 
 import { AGE_RESTRICTION } from 'configs'
-import { showPrice } from 'utils'
-import { isNotDeleted } from 'helpers'
+import { isNotDeleted, showPrice } from 'helpers'
+
+import { item, itemPrice, unavailableBlock } from './menu.module.scss'
 
 function MenuItem(props) {
 
@@ -20,19 +21,20 @@ function MenuItem(props) {
     menuItemOptionSets,
   } = props
 
-  const priceString = showPrice(price, {isMenuItem: true, menuItemOptionSets}) ? <Price price={price} /> : ''
+  const priceComponenet = showPrice(price, {isMenuItem: true, menuItemOptionSets}) ? <Price price={price} /> : null
 
   const imageUrl = image.url || 'http://lorempixel.com/g/500/500/food/'
+  const unavailable = !isAvailable || !image.url ? unavailableBlock : ''
 
   return (
-    <div className={`menu-item ${!isAvailable ? 'currently-unavailable' : ''} row`}>
+    <div className={`${item} ${unavailable} row`}>
       <img src={imageUrl} className="col-4"/>
       <div className="menu-item-details col-8">
         <div className="row">
           <h3>{menuItemName}</h3>
         </div>
-        <div className="menu-item-price row justify-content-end">
-          <div className="col-2">{ priceString }</div>
+        <div className={`${itemPrice} row justify-content-end`}>
+          <div className="col-2">{priceComponenet}</div>
         </div>
         <div className="row">
           <div className="col-6">
