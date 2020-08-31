@@ -1,16 +1,19 @@
 import React from 'react'
+import classNames from 'classnames'
+
 import { priceFormat } from 'helpers'
 import { free } from './price.module.scss'
 
 function Price(props) {
   const { price, additionalItem } = props
 
-  const css = !price ? free : ''
+  const priceClass = classNames({ [free]: !price })
+
   const additionalCharcater = price && additionalItem ? '+' : ''
   const priceString = `${additionalCharcater}${priceFormat(price)}`
 
   return(
-    <span className={css}>{priceString}</span>
+    <span className={priceClass}>{priceString}</span>
   )
 }
 
