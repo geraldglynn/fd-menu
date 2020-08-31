@@ -7,12 +7,9 @@ import MenuItem from 'components/menu/menu-item'
 const mockMenuItem = fromJS({})
 
 const mockMenuItem1 = mockMenuItem.merge(fromJS({
-    'MenuItemId': '1234',
     'Name': 'Item 1',
     'Description': 'Item Description 1',
-    'ImageName': 'abc.jpg',
     'ImageUrl': 'http://example.com/abc.jpg',
-    'CellAspectRatio': 4,
     'Price': 5.99,
     'Alcohol': true,
     isAvailable: true,
@@ -42,37 +39,27 @@ describe('MenuItem', () => {
     })
 
     it('should render name', () => {
-        const name = domText(/Item 1/i)
+        const name = domText(/Item 1/)
         expect(name).toBeInTheDocument()
     })
+
     it('should render description', () => {
-        const description = domText(/Item Description 1/i)
+        const description = domText(/Item Description 1/)
         expect(description).toBeInTheDocument()
     })
-    // it('should render image', () => {
-    //     const menuSectionHero = domTestId(/menu-section-hero/i)
-    //     expect(menuSectionHero).toHaveStyle(`background-image: url("http://example.com/abc.jpg")`)
-    //     expect(menuSectionHero).toHaveStyle(`height: 240px`)
-    // })
+
+    it('should render image', () => {
+        const image = domTestId(/menu-item-image/)
+        expect(image).toBeInTheDocument()
+    })
+
     it('should render price', () => {
-        const price = domText(/€5.99/i)
+        const price = domText(/€5.99/)
         expect(price).toBeInTheDocument()
     })
+
     it('should render alcohol age limit', () => {
-        const alcoholAgeLimitMessage = domText(/Must be \+18/i)
+        const alcoholAgeLimitMessage = domText(/Must be \+18/)
         expect(alcoholAgeLimitMessage).toBeInTheDocument()
     })
 })
-
-// menuItems={fromJS([
-//   {
-//       MenuItemId: '1234',
-//       Name: 'Menu Item Name 1',
-//       ImageUrl:'https://image.jpg',
-//       Description: 'MenuItemDescription1',
-//       Price: 1.00,
-//       Alcohol: true,
-//       IsAvailable: true,
-//       MenuItemOptionSets: fromJS([]),
-//   }
-// ])}

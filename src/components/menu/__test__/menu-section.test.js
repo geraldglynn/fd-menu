@@ -4,9 +4,9 @@ import { render } from '@testing-library/react';
 
 import MenuSection from 'components/menu/menu-section'
 
-import { mockMenuSection } from 'helpers/__test__/resources'
+import { mockMenuSectionBase } from './resources'
 
-const mockMenuSection1 = mockMenuSection.merge(fromJS({
+const mockMenuSection = mockMenuSectionBase.merge(fromJS({
     'Name': 'Section 1',
     'Description': 'Description 1',
     'ImageName': 'abc.jpg',
@@ -20,12 +20,12 @@ describe('MenuSection', () => {
     beforeEach( () => {
         const dom = render(
             <MenuSection
-                name={mockMenuSection1.get('Name')}
-                description={mockMenuSection1.get('Description')}
+                name={mockMenuSection.get('Name')}
+                description={mockMenuSection.get('Description')}
                 image={{
-                    name: mockMenuSection1.get('ImageName'),
-                    url: mockMenuSection1.get('ImageUrl'),
-                    cellAspectRatio: mockMenuSection1.get('CellAspectRatio'),
+                    name: mockMenuSection.get('ImageName'),
+                    url: mockMenuSection.get('ImageUrl'),
+                    cellAspectRatio: mockMenuSection.get('CellAspectRatio'),
                   }}
                 menuItems={fromJS([])}
             />
@@ -35,11 +35,11 @@ describe('MenuSection', () => {
     })
 
     it('should render name', () => {
-        const name = domText(/Section 1/i)
+        const name = domText(/Section 1/)
         expect(name).toBeInTheDocument()
     })
     it('should render description', () => {
-        const description = domText(/Description 1/i)
+        const description = domText(/Description 1/)
         expect(description).toBeInTheDocument()
     })
     it('should render image', () => {

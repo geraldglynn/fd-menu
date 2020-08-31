@@ -46,7 +46,7 @@ function MenuItem(props) {
 
   return (
     <div className={className.section}>
-      <img src={imageUrl} className={className.image}/>
+      <img src={imageUrl} className={className.image} data-testid="menu-item-image"/>
       <div className={className.body}>
         <div className={className.name}>
           <h3>{menuItemName}</h3>
