@@ -14,13 +14,9 @@ export const mockMenuSection = fromJS({
     MenuItems: []
 })
 
-const mockMenu = fromJS(
-    {
-        MenuSections: []
-    }
-)
-
-export const mockResource = fromJS({
+export const mockProperty = fromJS({
     IsDeleted: false,
-    DisplayOrder: 1,
+    IsAvailable: false,
+    HiddenFromUsers: false,
+    DisplayOrder: 0,
 })
