@@ -2,7 +2,7 @@ import React from 'react'
 
 import MenuItem from './menu-item'
 import { isNotDeleted, sortByDisplayOrder } from 'helpers'
-import { menuSection, menuSectionHero  } from './menu.module.scss'
+import { section, sectionHero  } from './menu.module.scss'
 
 
 const MENU_WIDTH = 960
@@ -21,8 +21,8 @@ function MenuSection(props) {
   }
 
   return (
-    <div className={menuSection}>
-      <div className={`${menuSectionHero} container-fluid`} style={style}>
+    <div className={section}>
+      <div className={`${sectionHero} container-fluid`} style={style}>
         <h2>{name}</h2>
       </div>
       <div className="menu-section-body container">
