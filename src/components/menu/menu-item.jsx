@@ -38,7 +38,6 @@ function MenuItem(props) {
     details: classNames('row'),
     description: classNames('col-6'),
     optionSets: classNames('col-6'),
-
   }
 
   debugger
