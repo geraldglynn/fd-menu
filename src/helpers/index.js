@@ -2,7 +2,7 @@ export {
   isNotDeleted,
   isAvailable,
   isNotHiddenFromUsers,
-  sortByDisplayOrder,
+  displayOrder,
 } from './menu'
 
 export {
