@@ -53,7 +53,7 @@ function MenuItem(props) {
         </div>
         { showPriceComponent ?
         <div className={className.priceSection}>
-          <div className={className.priceComponenet}>{priceComponenet}</div>
+Fixed priceComponent col-2          <div className={className.priceComponent}>{priceComponenet}</div>
         </div> : null }
         <div className={className.details}>
           <div className={className.description}>
