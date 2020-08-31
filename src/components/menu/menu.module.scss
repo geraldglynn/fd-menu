@@ -1,7 +1,7 @@
 @import 'style/variables';
 @import 'style/type';
 
-.menuContainer {
+.container {
   margin: 0 auto;
 
   h1{
@@ -9,7 +9,7 @@
   }
 }
 
-.menuSection {
+.section {
   h2 {
     display: flex;
     justify-content: center;
@@ -19,13 +19,13 @@
 
 }
 
-.menuSectionHero {
+.sectionHero {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: center;
 }
 
-.menuItem {
+.item {
   margin-top: $menu-item-margin;
   margin-bottom: $menu-item-margin;
 
@@ -36,16 +36,15 @@
   }
 }
 
-.menuItemPrice{
+.itemPrice{
   margin-top: -2rem;
   margin-bottom: 2rem;
 }
 
-
-.itemUnavailble{
-  text-decoration: line-through;
+.unavailableBlock{
+  opacity: 0.25;
 }
 
-.price-free{
-  font-style: italic;
+.unavailableInline{
+  text-decoration: line-through;
 }

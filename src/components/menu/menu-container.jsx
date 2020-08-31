@@ -3,7 +3,7 @@ import { List } from 'immutable'
 import MenuSection from './menu-section'
 import { isNotDeleted, isAvailable, isNotHiddenFromUsers } from 'helpers'
 
-import { menuContainer } from './menu.module.scss'
+import { container } from './menu.module.scss'
 
 const showSection = () => isNotDeleted && isAvailable && isNotHiddenFromUsers
 
@@ -13,7 +13,7 @@ function Menu(props) {
     .sortBy(menuSection => menuSection.get('DisplayOrder', 0))
 
   return (
-    <div className={menuContainer}>
+    <div className={container}>
       <h1>Menu</h1>
       {
         menuSections.map(menuSection =>

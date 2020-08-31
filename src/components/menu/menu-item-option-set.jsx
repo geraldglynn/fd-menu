@@ -2,13 +2,13 @@ import React from 'react'
 import { isNotDeleted, sortByDisplayOrder } from 'helpers'
 import { Price } from 'components/ui'
 
-import { itemUnavailable } from './menu.module.scss'
+import { optionSetItem, unavailableInline } from './menu.module.scss'
 
 function MenuItemOptionSetItem(props){
   const { name, price, isAvailable, additionalItem } = props
 
   return (
-    <div className={`${!isAvailable ? {itemUnavailable} : ''} row`}>
+    <div className={`${optionSetItem} ${!isAvailable ? {unavailableInline} : ''} row`}>
       <span className="col-8">{ name }</span>
       <span className="col-4"><Price price={price} additionalItem={additionalItem}/></span>
     </div>
