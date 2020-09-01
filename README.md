@@ -1,4 +1,5 @@
 To start app `npm run flipdish`
+To run unit and integration tests `npm run test`
 
 Technologies used:
 1. React functional components
@@ -8,4 +9,4 @@ Technologies used:
 5. Sass: styling and modules
 6. Classnames: handle classname logic
 7. Bootstrap: layout only
-8. 
+8.
