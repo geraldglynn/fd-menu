@@ -1,9 +1,14 @@
 import React from 'react'
-import { fromJS } from 'immutable'
+import { Provider } from 'react-redux';
 
 import Menu from 'components/menu/menu-container'
 import "style/main.scss"
 import "./app.scss"
+
+import configureStore from 'store/configure-store';
+
+const store = configureStore();
+window.store = store
 
 function App() {
   return (
@@ -15,7 +20,9 @@ function App() {
 					</a>
         </div>
       </header>
-      <Menu />
+      <Provider store={store}>
+        <Menu />
+      </Provider>
     </div>
   );
 }
