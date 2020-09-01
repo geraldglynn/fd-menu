@@ -15,13 +15,14 @@ function Menu(props) {
     getMenu().then(reponse => setMenu(reponse))
   }, [])
 
+  const menuVersionNumber = menu.get('MenuVersionNumber')
   const menuSections = menu.get('MenuSections', fromJS({}))
     .filter(showSection)
     .sortBy(menuSection => menuSection.get('DisplayOrder', 0))
 
   return (
     <div className={container}>
-      <h1>Menu</h1>
+      <h1>Menu v.{menuVersionNumber}</h1>
       {
         menuSections.map(menuSection =>
           <MenuSection
