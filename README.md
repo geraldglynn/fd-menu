@@ -1,4 +1,5 @@
 To start app `npm run flipdish`
+
 To run unit and integration tests `npm run test`
 
 Technologies used:
