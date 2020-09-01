@@ -24,7 +24,7 @@ function Menu(props) {
     <div className={container}>
       <h1>Menu v.{menuVersionNumber}</h1>
       {
-        menuSections.map(menuSection =>
+        menuSections.entrySeq().map(([, menuSection]) =>
           <MenuSection
             key={menuSection.get('MenuSectionId')}
             name={menuSection.get('Name')}
