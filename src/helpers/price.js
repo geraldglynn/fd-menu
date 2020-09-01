@@ -20,8 +20,9 @@ export const showPrice = (price, {menuItemOptionSets=''}={}) => {
 }
 
 export const priceFormat = (price, { locale ='' }={}) => {
-  const currencyMinor = locale || currencySymbol(LOCALE).minor
-  const currencyMajor = locale || currencySymbol(LOCALE).major
+  const useLocale = locale || LOCALE
+  const currencyMinor = currencySymbol(useLocale).minor
+  const currencyMajor = currencySymbol(useLocale).major
 
   switch(true) {
     case (!price):
