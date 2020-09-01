@@ -19,10 +19,10 @@ export const showPrice = (price, {menuItemOptionSets=''}={}) => {
   return true
 }
 
-const currencyMinor = currencySymbol(LOCALE).minor
-const currencyMajor = currencySymbol(LOCALE).major
+export const priceFormat = (price, { locale ='' }={}) => {
+  const currencyMinor = locale || currencySymbol(LOCALE).minor
+  const currencyMajor = locale || currencySymbol(LOCALE).major
 
-export const priceFormat = (price) => {
   switch(true) {
     case (!price):
       return FREE_TEXT
