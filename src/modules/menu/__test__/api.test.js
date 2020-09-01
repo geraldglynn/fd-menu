@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable'
-import { getMenu } from '../menu'
+import { getMenu } from '../api'
 
 const mockResponse = {test: "Test"}
 
