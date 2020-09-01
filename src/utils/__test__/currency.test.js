@@ -5,9 +5,9 @@ describe('currency', () => {
   describe('currencySymbol', () => {
 
     describe('EU countries', () => {
-      const contries = ['IE', 'ES', 'FR', 'DE']
+      const locales = ['IE', 'ES', 'FR', 'DE']
 
-      contries.forEach( country => {
+      locales.forEach( country => {
         it(`should return € as currency major if locale in EU: ${country}`, ()=> {
           expect(currencySymbol(country).major).toBe('€')
         })
@@ -18,9 +18,9 @@ describe('currency', () => {
     })
 
     describe('GB countries', () => {
-      const contries = ['GB', 'AI', 'BM', 'IO', 'GI']
+      const locales = ['GB', 'AI', 'BM', 'IO', 'GI']
 
-      contries.forEach( country => {
+      locales.forEach( country => {
         it(`should return € as currency major if locale in GB: ${country}`, ()=> {
           expect(currencySymbol(country).major).toBe('£')
         })
@@ -31,9 +31,9 @@ describe('currency', () => {
     })
 
     describe('US countries', () => {
-      const contries = ['US']
+      const locales = ['US']
 
-      contries.forEach( country => {
+      locales.forEach( country => {
         it(`should return € as currency major if locale in US: ${country}`, ()=> {
           expect(currencySymbol(country).major).toBe('$')
         })
