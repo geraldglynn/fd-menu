@@ -1,11 +1,13 @@
+@import 'style/variables';
+
 #flipdish{
   header{
     background-color: rgb(76, 92, 254);
-    height: 10rem;
+    height: $header-height;
 
     img{
-      margin-top: 1rem;
-      width: 100%
+      margin-top: $header-icon-margin;
+      height: $header-height - 2 * $header-icon-margin;
     }
   }
 }
