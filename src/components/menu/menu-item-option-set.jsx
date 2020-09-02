@@ -11,8 +11,8 @@ function MenuItemOptionSetItem(props){
 
   const className = {
     item: classNames('row', optionSetItem, { [unavailableInline]:!isAvailable }),
-    name: classNames('col-8'),
-    price: classNames('col-4')
+    name: classNames('col-xl-8'),
+    price: classNames('col-xl-4')
   }
 
   return (
