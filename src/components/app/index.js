@@ -1,5 +1,4 @@
 import React from 'react'
-import { fromJS } from 'immutable'
 
 import Menu from 'components/menu/menu-container'
 import "style/main.scss"
