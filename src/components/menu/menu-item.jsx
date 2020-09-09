@@ -40,10 +40,6 @@ function MenuItem(props) {
     optionSets: classNames('col-6'),
   }
 
-  debugger
-
-  const itemDetailsClass = classNames('col-8')
-
   return (
     <div className={className.section}>
       <img src={imageUrl} className={className.image} data-testid="menu-item-image"/>
