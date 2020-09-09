@@ -37,6 +37,7 @@ function MenuSection(props) {
               name={menuItem.get('Name')}
               image={{
                 url: menuItem.get('ImageUrl'),
+                name: menuItem.get('ImageName'),
               }}
               description={menuItem.get('Description')}
               price={menuItem.get('Price')}
